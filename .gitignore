@@ -1,0 +1,44 @@
+
+# --- Python / backend ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+
+# --- Node / frontend ---
+node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/tsconfig.tsbuildinfo
+npm-debug.log*
+
+# --- Local data (never committed: contains personal profile, CVs, DB) ---
+data/*
+!data/.gitkeep
+!data/profile/
+data/profile/*
+!data/profile/.gitkeep
+
+# --- Secrets ---
+.env
+.env.*
+!.env.example
+
+# --- OS / editor ---
+.DS_Store
+.vscode/
+.idea/
+
+# --- LaTeX build byproducts (kept only inside generation artifact dirs, never at repo root) ---
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz

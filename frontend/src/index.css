@@ -1,0 +1,213 @@
+:root {
+  color-scheme: light dark;
+  --border: #d0d0d5;
+  --muted: #666;
+  --bg-subtle: #f6f6f8;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #1a1a1e;
+  background: #fff;
+}
+
+a {
+  color: #0b5fff;
+}
+
+.app-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.app-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.app-nav h1 {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 6px 14px;
+  border: 1px solid #1a1a1e;
+  background: #1a1a1e;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.btn.secondary {
+  background: #fff;
+  color: #1a1a1e;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+th {
+  color: var(--muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+}
+
+.badge.applied {
+  background: #e6f6ea;
+  border-color: #8fd19e;
+  color: #1e6b30;
+}
+
+form.stacked {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 640px;
+}
+
+form.stacked label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+}
+
+input,
+textarea,
+select {
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+
+.error-box {
+  background: #fdeaea;
+  border: 1px solid #f0a3a3;
+  color: #8a1f1f;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.detail-grid div {
+  font-size: 0.85rem;
+}
+
+.detail-grid dt {
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+.section {
+  margin-top: 28px;
+}
+
+.section h2 {
+  font-size: 1rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 6px;
+}
+
+pre.description {
+  white-space: pre-wrap;
+  font-family: inherit;
+  font-size: 0.9rem;
+  background: var(--bg-subtle);
+  padding: 12px;
+  border-radius: 6px;
+}
+
+.step-list {
+  list-style: none;
+  margin: 8px 0;
+  padding: 0;
+}
+
+.step-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 6px 0;
+}
+
+.step-icon {
+  flex: 0 0 auto;
+  width: 18px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.step-icon.succeeded {
+  color: #1e6b30;
+}
+
+.step-icon.failed {
+  color: #8a1f1f;
+}
+
+.step-icon.skipped {
+  color: var(--muted);
+}
+
+.step-icon.running {
+  animation: step-spin 1s linear infinite;
+  display: inline-block;
+}
+
+.step-message {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-top: 1px;
+}
+
+@keyframes step-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,205 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot,
+    top=1.2 cm,
+    bottom=1.2 cm,
+    left=1.8 cm,
+    right=1.8 cm,
+    footskip=0.6 cm,
+]{geometry}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primaryColor}{RGB}{0, 0, 0}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{amsmath}
+
+\usepackage[
+    pdftitle={Jan Kowalski CV},
+    pdfauthor={Jan Kowalski},
+    pdfcreator={LaTeX},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref}
+
+\usepackage[pscoord]{eso-pic}
+\usepackage{calc}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{changepage}
+\usepackage{paracol}
+\usepackage{ifthen}
+\usepackage{needspace}
+\usepackage{iftex}
+
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+    \usepackage{charter}
+\else
+    % The classic `charter` package is NFSS/T1-only and silently drops its
+    % bold shape under XeLaTeX/LuaTeX's Unicode (TU) font encoding --
+    % \textbf{} compiles with no error but renders as regular weight (caught
+    % by comparing a generated PDF's bullets against the hand-authored
+    % original, where bolded tech names/numbers are the whole point). XCharter
+    % is the OpenType counterpart of the same typeface, built for fontspec,
+    % with working bold/italic under Unicode-aware engines.
+    \usepackage{fontspec}
+    \setmainfont{XCharter}
+\fi
+
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\columnsep}{0.15cm}
+\pagenumbering{gobble}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{-1pt}{0.14 cm}{0.08 cm}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$}
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.03 cm,
+        parsep=0.03 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0 cm + 10pt
+    ]
+    \setlength{\baselineskip}{1.0\baselineskip}
+}{
+    \end{itemize}
+}
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0 cm + 0.00001 cm
+    }{
+        0 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+}
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+}
+
+\usepackage{graphicx}
+\usepackage{tikz}
+
+\begin{document}
+
+\newcommand{\AND}{\unskip
+    \cleaders\copy\ANDbox\hskip\wd\ANDbox
+    \ignorespaces
+}
+\newsavebox\ANDbox
+\sbox\ANDbox{$|$}
+
+\begin{header}
+    {\fontsize{21 pt}{21 pt}\selectfont \textbf{Jan Kowalski}} \\[0.16cm]
+            {\fontsize{11 pt}{11 pt}\selectfont DevOps Engineer} \\[0.10cm]
+
+    \href{mailto:jan.kowalski@example.com}{jan.kowalski@example.com} \\
+            \vspace{0.05cm}
+            \href{tel:+48000000000}{+48 000 000 000} \\
+            \vspace{0.05cm}
+            \href{https://www.linkedin.com/in/jan-kowalski-example}{www.linkedin.com/in/jan-kowalski-example}
+            \vspace{0.05cm}
+            \href{https://github.com/jan-kowalski-example}{github.com/jan-kowalski-example}
+            \vspace{0.05cm}
+            \newline Wroclaw, Poland
+\end{header}
+
+\vspace{0.08 cm}
+\section{Summary}
+\begin{onecolentry}
+DevOps engineer with \textbf{5} years of experience automating cloud infrastructure and CI/CD pipelines.
+\end{onecolentry}
+\section{Skills \& Technologies}
+\vspace{0.05 cm}
+\textbf{Cloud}: AWS, GCP \\
+\vspace{0.05 cm}
+\textbf{Tooling}: Kubernetes, Terraform, Ansible, GitHub Actions \\
+\vspace{0.05 cm}
+\begin{onecolentry}
+\textbf{Languages:} Polish native, English C1
+\end{onecolentry}
+\section{Experience}
+\begin{twocolentry}{2021 -- present}
+\textbf{DevOps Engineer}, Example Corp, Wroclaw
+\end{twocolentry}
+\vspace{0.04 cm}
+\begin{onecolentry}
+\begin{highlights}
+\item Migrated \textbf{40} services to \textbf{Kubernetes}, cutting deployment time by \textbf{60\%}.
+\item Built \textbf{Terraform} modules used by \textbf{6} product teams.
+\end{highlights}
+\end{onecolentry}
+\vspace{0.08 cm}
+\begin{twocolentry}{2019 -- 2021}
+\textbf{Junior System Administrator}, Sample Software Sp. z o.o., Remote
+\end{twocolentry}
+\vspace{0.04 cm}
+\begin{onecolentry}
+\begin{highlights}
+\item Automated Linux server provisioning with \textbf{Ansible}.
+\end{highlights}
+\end{onecolentry}
+\section{Projects}
+\begin{twocolentry}{\href{https://github.com/jan-kowalski-example/homelab-gitops}{https://github.com/jan-kowalski-example/homelab-gitops}}
+\textbf{homelab-gitops}
+\end{twocolentry}
+\vspace{0.04 cm}
+\begin{onecolentry}
+\begin{highlights}
+\item GitOps-managed homelab cluster with Argo CD.
+\end{highlights}
+\end{onecolentry}
+\section{Certification}
+\vspace{0.08 cm}
+\begin{onecolentry}
+AWS Certified Solutions Architect -- Associate -- Amazon Web Services
+\end{onecolentry}
+\vspace{0.04 cm}
+\section{Education}
+\begin{samepage}
+\begin{twocolentry}{2015 -- 2019}
+\textbf{Example University of Technology}
+\end{twocolentry}
+\vspace{0.04 cm}
+\begin{onecolentry}
+BSc Computer Science
+\vspace{0.04 cm}
+\end{onecolentry}
+\end{samepage}
+\vspace{0.08 cm}
+\begin{samepage}
+By submitting this CV, I consent to the processing of my personal data for recruitment purposes in accordance with applicable data protection laws.
+\end{samepage}
+\end{document}

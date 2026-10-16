@@ -1,0 +1,1 @@
+Built a CV generator with an AI that's structurally not allowed to lie about you. Every bullet has to trace back to a real fact — try to embellish one, and it just reverts to the boring, true version instead of "fixing" it for you.

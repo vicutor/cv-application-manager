@@ -1,0 +1,121 @@
+# Anonymous example candidate profile.
+# This is a fixture for tests and onboarding, NOT a real person's data.
+# Copy this file to data/profile/candidate.yaml (git-ignored) as your real,
+# private working profile.
+
+schema_version: 1
+
+person:
+  full_name: "Jan Kowalski"
+  location: "Wroclaw, Poland"
+  email: "jan.kowalski@example.com"
+  phone: "+48 000 000 000"
+  links:
+    linkedin: "https://www.linkedin.com/in/jan-kowalski-example"
+    github: "https://github.com/jan-kowalski-example"
+
+preferences:
+  target_roles:
+    - DevOps Engineer
+    - Platform Engineer
+  default_cv_language: en
+  maximum_pages: 2
+
+summary_facts:
+  - id: summary_devops_years
+    statement: "5 years of experience building and operating cloud infrastructure, with a focus on Kubernetes and CI/CD automation."
+    evidence_level: verified
+
+experience:
+  - id: exp_examplecorp_platform_engineer
+    company: "ExampleCorp"
+    position: "Platform Engineer"
+    start_date: "2022-03"
+    end_date: null
+    location: "Remote"
+    technologies:
+      - Kubernetes
+      - Terraform
+      - GCP
+      - GitHub Actions
+    responsibilities:
+      - id: resp_examplecorp_001
+        statement: "Operated and scaled a multi-tenant Kubernetes platform serving internal product teams."
+        evidence_level: verified
+      - id: resp_examplecorp_002
+        statement: "Owned CI/CD pipelines for over 20 services, standardizing build and deployment workflows."
+        evidence_level: verified
+    achievements:
+      - id: ach_examplecorp_001
+        statement: "Reduced average deployment time by automating manual release steps."
+        metrics:
+          - value: 40
+            unit: percent
+            context: "reduction in median deployment duration after CI/CD automation rollout"
+        technologies:
+          - GitHub Actions
+          - Terraform
+        evidence_level: verified
+
+  - id: exp_priorco_devops_engineer
+    company: "PriorCo"
+    position: "DevOps Engineer"
+    start_date: "2020-01"
+    end_date: "2022-02"
+    location: "Wroclaw, Poland"
+    technologies:
+      - AWS
+      - Docker
+      - Ansible
+    responsibilities:
+      - id: resp_priorco_001
+        statement: "Migrated legacy on-premise services to AWS, maintaining zero-downtime during cutover."
+        evidence_level: verified
+    achievements:
+      - id: ach_priorco_001
+        statement: "Cut monthly infrastructure cost after migrating from self-managed VMs to autoscaling groups."
+        metrics:
+          - value: 25
+            unit: percent
+            context: "reduction in monthly AWS spend after autoscaling migration"
+        technologies:
+          - AWS
+        evidence_level: verified
+
+skills:
+  - id: skill_kubernetes
+    name: Kubernetes
+    level: advanced
+    evidence_refs:
+      - resp_examplecorp_001
+  - id: skill_terraform
+    name: Terraform
+    level: advanced
+    evidence_refs:
+      - ach_examplecorp_001
+  - id: skill_aws
+    name: AWS
+    level: intermediate
+    evidence_refs:
+      - resp_priorco_001
+      - ach_priorco_001
+  - id: skill_cicd
+    name: CI/CD
+    level: advanced
+    evidence_refs:
+      - resp_examplecorp_002
+
+education:
+  - id: edu_example_university
+    institution: "Example Technical University"
+    degree: "BSc Computer Science"
+    start_date: "2016-10"
+    end_date: "2020-06"
+
+certifications: []
+languages:
+  - name: English
+    level: C1
+  - name: Polish
+    level: native
+projects: []
